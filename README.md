@@ -11,9 +11,9 @@ Risks
 Failure scenarios
 Survival strategies
 
-👉 This is your foundation
+👉 foundation
 
-⚡ EXPANSION MODULES (ADD THESE)
+⚡ EXPANSION MODULES 
 💣 1. “AI Attack Engine”
 
 Idea:
@@ -31,13 +31,13 @@ Example Output:
 “Your competitor will undercut pricing”
 “Your system can be easily exploited”
 
-👉 Makes your project feel like real-world simulation
+👉 Makes project feel like real-world simulation
 
 🧬 2. “Failure Timeline Generator”
 
 Idea:
 AI shows:
-👉 How your idea will fail over time
+👉 How  idea will fail over time
 
 Example:
 
@@ -45,7 +45,7 @@ Month 1 → low users
 Month 3 → funding issue
 Month 6 → competitor kills you
 
-👉 Judges LOVE timeline visualization
+👉  timeline visualization
 
 🧠 3. “Survival Strategy Generator”
 
@@ -71,7 +71,7 @@ Market
 Tech
 Competition
 
-👉 Add simple gauge UI = very impressive
+👉 simple gauge UI
 
 🧩 5. “Idea Evolution Engine”
 
@@ -98,7 +98,7 @@ What if server crashes?
 
 AI simulates outcome
 
-👉 This adds interactive depth
+👉 Adds interactive depth
 
 🧑‍⚖️ 7. “AI Jury Panel”
 
@@ -179,7 +179,7 @@ Example:
 “Act as competitor…”
 “Act as failure predictor…”
 
-👉 This creates illusion of multiple AI agents
+👉creates illusion of multiple AI agents
 
 Frontend (Simple but powerful)
 Input box (idea)
