@@ -1,41 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<>
-    <meta charset="UTF-8">
+    
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Startup War Simulator</title>
     <link href-="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+
  </head>
  <body>
-  <div id="app" class="scanline">
+<div id="app" class="scanline">
+        
    <div class="grid-bg"></div>
-   <div id="toast" class="toast"></div><!-- HERO SECTION -->
+   <div id="toast" class="toast"></div>
+   <div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+   <!-- HERO SECTION -->
    <section id="heroSection">
     <div class="anim-fade-up">
-     <div class="badge"><i data-lucide="zap" style="width:14px;height:14px"></i> WAR ROOM ACTIVE
+     <div class="badge"><i class= " fa-solid fa-bolt" style="width:14px;height:14px"></i> WAR ROOM ACTIVE
      </div>
     </div>
     <h1 id="mainTitle" class="anim-fade-up delay-1">AI Startup War Simulator</h1>
     <p id="subtitleText" class="text-lg text-slate-400 max-w-2xl mb-12 anim-fade-up delay-2" style="line-height: 1.625;">Stress-test your startup idea against AI competitors, investors, hackers &amp; critics before reality does it for you.</p><!-- Input Area -->
     <div class="w-full max-w-3xl anim-fade-up delay-3">
-     <div class="war-card p-6" style="margin-bottom: 32px;"><label class="block text-left text-sm font-500 text-slate-300 mb-3"> <i class="fa-solid fa-bolt" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:6px"></i> Describe your startup idea </label> <textarea id="ideaInput" class="idea-input" placeholder="e.g. An AI-powered platform that matches freelance developers with startup projects based on skill compatibility and work style preferences..."></textarea>
+     <div class="war-card p-6" style="margin-bottom: 32px;"><label class="block text-left text-sm font-500 text-slate-300 mb-3"> <i class="fa-solid fa-crosshairs" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:6px"></i> Describe your startup idea </label>
+         <textarea id="ideaInput" class="idea-input" placeholder="e.g. An AI-powered platform that matches freelance developers with startup projects based on skill compatibility and work style preferences..."></textarea>
       <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-top: 20px; gap: 16px;">
-       <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #64748b; font-family: 'Space Mono', monospace;"><i class="fa-solid fa-info" style="width:12px;height:12px"></i> <span>The more detail, the sharper the analysis</span>
+       <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #64748b; font-family: 'Space Mono', monospace;"><i class="fa-solid fa-info" style="width:12px;height:12px"></i> <span> The more detail, the sharper the analysis</span>
        </div><button id="launchBtn" class="launch-btn bg-sky-500 text-white" onclick="launchSimulation()"> <span id="launchBtnText">Launch War Simulation</span> </button>
       </div>
      </div>
-    </div><!-- Quick examples -->
-    <div class="mt-6 flex flex-wrap justify-center gap-2 anim-fade-up delay-4" style="margin-top: 24px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;"><span style="font-size: 12px; color: #64748b; margin-right: 8px; align-self: center;">Try:</span> <button onclick="fillExample(0)" style="padding: 6px 12px; border-radius: 9999px; font-size: 12px; background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(51, 65, 85, 0.5); color: #64748b; cursor: pointer; transition: all 0.2s;">AI Tutor App</button> <button onclick="fillExample(1)" style="padding: 6px 12px; border-radius: 9999px; font-size: 12px; background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(51, 65, 85, 0.5); color: #64748b; cursor: pointer; transition: all 0.2s;">Drone Delivery SaaS</button> <button onclick="fillExample(2)" style="padding: 6px 12px; border-radius: 9999px; font-size: 12px; background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(51, 65, 85, 0.5); color: #64748b; cursor: pointer; transition: all 0.2s;">DeFi Lending Protocol</button>
     </div>
-   </section><!-- RESULTS SECTION -->
-   <section id="resultsSection" style="display:none"><!-- Top Bar: Idea summary + Score -->
+    <!-- Quick examples -->
+    <div class="mt-6 flex flex-wrap justify-center gap-2 anim-fade-up delay-4" style="margin-top: 24px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;"><span style="font-size: 12px; color: #64748b; margin-right: 8px; align-self: center;">Try:</span>
+         <button onclick="fillExample(0)" style="padding: 6px 12px; border-radius: 9999px; font-size: 12px; background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(51, 65, 85, 0.5); color: #64748b; cursor: pointer; transition: all 0.2s;">AI Tutor App</button>
+         <button onclick="fillExample(1)" style="padding: 6px 12px; border-radius: 9999px; font-size: 12px; background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(51, 65, 85, 0.5); color: #64748b; cursor: pointer; transition: all 0.2s;">Drone Delivery SaaS</button>
+          <button onclick="fillExample(2)" style="padding: 6px 12px; border-radius: 9999px; font-size: 12px; background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(51, 65, 85, 0.5); color: #64748b; cursor: pointer; transition: all 0.2s;">DeFi Lending Protocol</button>
+    </div>
+   </section>
+   <!-- RESULTS SECTION -->
+   <section id="resultsSection" style="display:none">
+    <!-- Top Bar: Idea summary + Score -->
     <div id="topBar" class="war-card p-6" style="margin-bottom: 32px;">
      <div style="display: flex; flex-direction: column; gap: 32px; align-items: flex-start;">
       <div style="flex: 1; width: 100%;">
        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-        <div style="width: 40px; height: 40px; border-radius: 8px; background: rgba(56, 189, 248, 0.15); display: flex; align-items: center; justify-content: center;"><i data-lucide="crosshair" style="width:20px;height:20px;color:#38bdf8"></i>
+        <div style="width: 40px; height: 40px; border-radius: 8px; background: rgba(56, 189, 248, 0.15); display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-crosshairs" style="width:20px;height:20px;color:white"></i>
         </div>
         <div>
          <div style="font-size: 12px; color: #64748b; font-family: 'Space Mono', monospace; letter-spacing: 0.05em;">
@@ -60,12 +73,19 @@
        <div id="scoreLabel" style="font-size: 12px; font-weight: 500; font-family: 'Space Mono', monospace; letter-spacing: 0.05em;"></div>
       </div>
      </div>
-    </div><!-- Tabs -->
+    </div>
+    <!-- Tabs -->
     <div style="display: flex; gap: 8px; margin-bottom: 24px; overflow-x: auto; padding-bottom: 8px;" id="tabBar"><button class="tab-btn active" onclick="switchTab('attacks')" style="display: flex; align-items: center; gap: 4px;"> <i data-lucide="swords" style="width:14px;height:14px;display:inline;vertical-align:middle"></i> Attack Engine </button> <button class="tab-btn" onclick="switchTab('timeline')" style="display: flex; align-items: center; gap: 4px;"> <i data-lucide="clock" style="width:14px;height:14px;display:inline;vertical-align:middle"></i> Failure Timeline </button> <button class="tab-btn" onclick="switchTab('survival')" style="display: flex; align-items: center; gap: 4px;"> <i data-lucide="shield" style="width:14px;height:14px;display:inline;vertical-align:middle"></i> Survival Strategies </button> <button class="tab-btn" onclick="switchTab('jury')" style="display: flex; align-items: center; gap: 4px;"> <i data-lucide="users" style="width:14px;height:14px;display:inline;vertical-align:middle"></i> AI Jury Panel </button> <button class="tab-btn" onclick="switchTab('market')" style="display: flex; align-items: center; gap: 4px;"> <i data-lucide="bar-chart-2" style="width:14px;height:14px;display:inline;vertical-align:middle"></i> Market Reality </button> <button class="tab-btn" onclick="switchTab('bias')" style="display: flex; align-items: center; gap: 4px;"> <i data-lucide="eye" style="width:14px;height:14px;display:inline;vertical-align:middle"></i> Blind Spots </button> <button class="tab-btn" onclick="switchTab('pitch')" style="display: flex; align-items: center; gap: 4px;"> <i data-lucide="presentation" style="width:14px;height:14px;display:inline;vertical-align:middle"></i> Auto Pitch </button>
-    </div><!-- Tab Content -->
-    <div id="tabContent"></div><!-- Back button -->
-    <div style="margin-top: 48px; text-align: center;"><button onclick="resetSimulation()" style="padding: 12px 24px; border-radius: 12px; background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(51, 65, 85, 0.5); color: #64748b; cursor: pointer; font-size: 14px; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px;"> <i data-lucide="arrow-left" style="width:14px;height:14px"></i> Test Another Idea </button>
+    </div>
+    <!-- Tab Content -->
+    <div id="tabContent"></div>
+    <!-- Back button -->
+    <div style="margin-top: 48px; text-align: center;">
+        <button onclick="resetSimulation()" style="padding: 12px 24px; border-radius: 12px; background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(51, 65, 85, 0.5); color: #64748b; cursor: pointer; font-size: 14px; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px;"> <i data-lucide="arrow-left" style="width:14px;height:14px"></i> Test Another Idea </button>
     </div>
    </section>
-  </div>
-  <script>
+    
+</body>
+
+</html>  
+  

@@ -48,6 +48,10 @@ html, body {
   background-size: 40px 40px;
   animation: gridPulse 4s ease-in-out infinite;
 }
+#mainTitle
+{
+     font-size: 3rem;
+}
 
 .scanline::after {
   content: '';
@@ -67,12 +71,17 @@ html, body {
 .glow-amber { box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.2), 0 0 15px rgba(245, 158, 11, 0.08); }
 .glow-purple { box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.2), 0 0 15px rgba(168, 85, 247, 0.08); }
 
+#launchBtn {
+  display: block;
+  margin: 0 auto ;
+}
 .war-card {
   background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9));
   border: 1px solid rgba(56, 189, 248, 0.1);
   border-radius: 12px;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  
 }
 .war-card:hover {
   border-color: rgba(56, 189, 248, 0.25);
@@ -164,6 +173,11 @@ html, body {
   resize: vertical;
   transition: all 0.3s;
   line-height: 1.6;
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+
+font-weight: bold;
+
 }
 .idea-input:focus {
   outline: none;
@@ -282,6 +296,9 @@ html, body {
         width:100%;
         height:100%;
         overflow:auto;
+        position: relative;
+  overflow: hidden; /* This keeps the 3D 'glow' from leaking out */
+  min-height: 100vh;
     }
     #heroSection
     {
@@ -554,6 +571,16 @@ padding:32px;
 .mt-6{
     margin-top:24px;
 }
+.mt-6 button:hover {
+  transform: scale(1.05) !important;
+  background-color: #0ea5e9 !important;
+  color: white !important;
+  transition: all 0.3s ease-in-out !important;
+}
+
+.mt-6 button {
+  transition: all 0.3s ease-in-out !important;
+}
 .mt-12{
     margin-top:48px;
 }      
@@ -655,5 +682,78 @@ padding:32px;
     grid-template-columns: 1fr;
   }
 }   
-    
-    
+.blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0,183,255,0.2) 0%, transparent 70%);
+  filter: blur(80px);
+  z-index: -1;
+  animation: float 20s infinite alternate;
+}
+
+.blob-1 { top: -10%; left: -10%; }
+.blob-2 { bottom: -10%; right: -10%; background: radial-gradient(circle, rgba(123,0,255,0.15) 0%, transparent 70%); }
+
+@keyframes float {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(50px, 100px) scale(1.1); }
+}
+
+.grid-bg {
+  position: absolute;
+  z-index: 0; 
+  width: 100%;
+  height: 100%;
+
+}
+
+
+.blob {
+  position: absolute;
+  z-index: 1;  
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 183, 255, 0.3) 0%, transparent 70%);
+  filter: blur(80px);
+  animation: float 20s infinite alternate;
+  pointer-events: none;
+}
+
+
+#heroSection, #resultsSection {
+  position: relative;
+  z-index: 2; 
+}
+
+#app::after {
+  content: "";
+  position: fixed;
+  top: -100px; 
+  left: 0;
+  width: 100%;
+  height: 2px; 
+  background: rgba(0, 255, 255, 0.5); /
+  box-shadow: 0 0 15px 4px rgba(0, 255, 255, 0.3); 
+  z-index: 100; 
+    pointer-events: none; 
+  animation: scan 4s linear infinite;
+}
+
+
+@keyframes scan {
+  0% {
+    top: -5%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 105%;
+    opacity: 0;
+  }
+}
