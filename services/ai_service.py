@@ -1,7 +1,7 @@
-import os
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
+import os
 
 load_dotenv()
 
@@ -142,13 +142,13 @@ Be clear, structured, and decisive.
 if __name__ == "__main__":
     idea = input("Enter your startup idea: ")
 
-    print("\n⏳ Running AI 1 (Risk Analyst)...")
+    print("\nRunning AI 1 (Risk Analyst)...")
     out1 = run_agent_1(idea)
 
-    print("\n⏳ Running AI 2 (Attack Simulator)...")
+    print("\nRunning AI 2 (Attack Simulator)...")
     out2 = run_agent_2(idea)
 
-    print("\n⏳ Running Judge AI...")
+    print("\nRunning Judge AI...")
     final = run_judge(idea, out1, out2)
 
     print("\n================ FINAL OUTPUT ================\n")
