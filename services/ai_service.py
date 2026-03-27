@@ -2,6 +2,13 @@ from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 import os
+from fastapi import FastAPI
+from pydantic import BaseModel, Field, computed_field
+from typing import List, Optional,Annotated,Literal
+
+app = FastAPI()
+class IdeaRequest(BaseModel):
+    idea: str = Annotated[str, Field(..., description="The startup idea to analyze")]
 
 load_dotenv()
 
@@ -139,17 +146,32 @@ Be clear, structured, and decisive.
 """
     return judge.invoke(prompt).content
 
-if __name__ == "__main__":
-    idea = input("Enter your startup idea: ")
+# if __name__ == "__main__":
+#     idea = input("Enter your startup idea: ")
 
-    print("\nRunning AI 1 (Risk Analyst)...")
+#     print("\nRunning AI 1 (Risk Analyst)...")
+#     out1 = run_agent_1(idea)
+
+#     print("\nRunning AI 2 (Attack Simulator)...")
+#     out2 = run_agent_2(idea)
+
+#     print("\nRunning Judge AI...")
+#     final = run_judge(idea, out1, out2)
+
+#     print("\n================ FINAL OUTPUT ================\n")
+#     print(final)
+
+@app.post("/analyze")
+def analyze_idea(request: IdeaRequest):
+    idea = request.idea
+
     out1 = run_agent_1(idea)
-
-    print("\nRunning AI 2 (Attack Simulator)...")
     out2 = run_agent_2(idea)
-
-    print("\nRunning Judge AI...")
     final = run_judge(idea, out1, out2)
 
-    print("\n================ FINAL OUTPUT ================\n")
-    print(final)
+    return {
+        "idea": idea,
+        "risk_analysis": out1,
+        "attack_analysis": out2,
+        "final_result": final
+    }
