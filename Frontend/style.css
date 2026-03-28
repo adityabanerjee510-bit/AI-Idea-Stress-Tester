@@ -728,32 +728,55 @@ padding:32px;
 
 #app::after {
   content: "";
-  position: fixed;
+  position: absolute;
+  
+  /* ADD THIS LINE */
   top: -100px; 
+  
   left: 0;
   width: 100%;
-  height: 2px; 
-  background: rgba(0, 255, 255, 0.5); /
-  box-shadow: 0 0 15px 4px rgba(0, 255, 255, 0.3); 
-  z-index: 100; 
-    pointer-events: none; 
+  height: 2px;
+  background: #00d2ff;
+  box-shadow: 0 0 15px #00d2ff;
+  pointer-events: none;
+  z-index: 10;
   animation: scan 4s linear infinite;
+  animation-delay: 1s;
 }
-
 
 @keyframes scan {
   0% {
     top: -5%;
     opacity: 0;
   }
-  10% {
-    opacity: 1;
+  5% {
+    opacity: 1; /* Fade in quickly as it starts */
   }
-  90% {
-    opacity: 1;
+  95% {
+    opacity: 1; /* Stay visible until the very end */
   }
   100% {
     top: 105%;
-    opacity: 0;
+    opacity: 0; /* Fade out as it exits */
   }
+}
+body {
+  background-image: 
+    /* Main Sharp Lines */
+    linear-gradient(rgba(0, 210, 255, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 210, 255, 0.3) 1px, transparent 1px),
+    /* Soft Glow Blur */
+    linear-gradient(rgba(0, 210, 255, 0.1) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(0, 210, 255, 0.1) 2px, transparent 2px);
+  background-size: 50px 50px, 50px 50px;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.8) 100%);
+  pointer-events: none;
 }
